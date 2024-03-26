@@ -1,0 +1,10 @@
+This set of 35 excel tables show data obtained from census data. If you view "Arunachal Pradesh" file, you can see the data obtained from census table in sheet 3. From that data, only districts in that state were filtered on to sheet named "filtered". Sheet named "Transpose" shows the format of table into which data is to be transformed. The file named "J AND K" contains the final expected output in sheet named as "Transpose".  
+
+To process these 35 sheets together, Power Query was used to create a table format from which XLOOKUP function can be used to extract data. The steps used in Power Query are listed below:
+1. Apply filter column to "type" and "Education level" columns.  Select the rows which are to be retained in both columns. The rows retained in "type" column are rural and urban only. The rows retained in "Education level" column are Total, Illiterate, Literate, Graduate and above other than technical degree. Data pertaining to matric education, secondary education, technical degree and diploma are not taken for further analysis.
+2. Replace all strings in "Education level" column having entry "Graduate and above other than technical degree" with "Graduate"
+3. Extract district name after delimiter from "Name" column into a new column named "District Name".
+4. Concatenate strings in columns "District Name", "Type" and "Education level" into a new column named "Combine".
+5. Save and load.
+
+From this format, we can apply XLOOKUP to extract values onto new excel sheet.
